@@ -64,7 +64,7 @@
             </button>
             <div class="player-info">
               <div class="player-line">
-                <strong>Você + Eu</strong>
+                <strong>Accomplice — The VANNS</strong>
                 <span id="playerState">pronto para tocar</span>
               </div>
               <div class="progress-bar" aria-hidden="true">
@@ -372,36 +372,40 @@
       <span>❤</span>
     </div>
 
+    <audio id="heroAudio" preload="none">
+      <source src="images/audios/accomplice.mp3" type="audio/mpeg" />
+    </audio>
+
     <script>
       const playButton = document.getElementById("playButton");
       const playerState = document.getElementById("playerState");
       const progressFill = document.getElementById("progressFill");
-      let playing = false;
-      let progress = 18;
+      const audio = document.getElementById("heroAudio");
 
       playButton.addEventListener("click", () => {
-        playing = !playing;
-        playButton.textContent = playing ? "❚❚" : "▶";
-        playerState.textContent = playing
-          ? "tocando agora"
-          : "pronto para tocar";
-
-        if (playing) {
-          progress = 18;
-          progressFill.style.width = progress + "%";
-        }
-      });
-
-      setInterval(() => {
-        if (!playing) return;
-        progress = Math.min(progress + 1.5, 100);
-        progressFill.style.width = progress + "%";
-        if (progress >= 100) {
-          playing = false;
+        if (audio.paused) {
+          audio.play();
+          playButton.textContent = "❚❚";
+          playerState.textContent = "tocando agora";
+        } else {
+          audio.pause();
           playButton.textContent = "▶";
           playerState.textContent = "pronto para tocar";
         }
-      }, 180);
+      });
+
+      audio.addEventListener("timeupdate", () => {
+        if (audio.duration) {
+          const pct = (audio.currentTime / audio.duration) * 100;
+          progressFill.style.width = pct + "%";
+        }
+      });
+
+      audio.addEventListener("ended", () => {
+        playButton.textContent = "▶";
+        playerState.textContent = "pronto para tocar";
+        progressFill.style.width = "0%";
+      });
     </script>
   </body>
 </html>
