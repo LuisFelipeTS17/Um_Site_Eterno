@@ -43,31 +43,23 @@ body::before {
 
 .floating-hearts span {
   position: absolute;
-  font-size: clamp(1rem, 2vw, 1.6rem);
-  color: rgba(255, 142, 155, 0.2);
-  animation: floatHeart 10s linear infinite;
+  color: rgba(255, 142, 155, 0.55);
+  animation: floatHeart linear infinite;
+  bottom: -10%;
 }
 
-.floating-hearts span:nth-child(1) {
-  left: 8%;
-  bottom: -10%;
-  animation-delay: 0s;
-}
-.floating-hearts span:nth-child(2) {
-  left: 26%;
-  bottom: -16%;
-  animation-delay: 2s;
-}
-.floating-hearts span:nth-child(3) {
-  left: 68%;
-  bottom: -12%;
-  animation-delay: 4s;
-}
-.floating-hearts span:nth-child(4) {
-  left: 86%;
-  bottom: -18%;
-  animation-delay: 6s;
-}
+.floating-hearts span:nth-child(1)  { left:  5%; font-size: 1.4rem; animation-duration: 9s;  animation-delay: 0s;   }
+.floating-hearts span:nth-child(2)  { left: 14%; font-size: 1rem;   animation-duration: 11s; animation-delay: 1s;   }
+.floating-hearts span:nth-child(3)  { left: 23%; font-size: 1.8rem; animation-duration: 8s;  animation-delay: 2.5s; }
+.floating-hearts span:nth-child(4)  { left: 33%; font-size: 1.1rem; animation-duration: 13s; animation-delay: 0.5s; }
+.floating-hearts span:nth-child(5)  { left: 43%; font-size: 1.6rem; animation-duration: 10s; animation-delay: 3s;   }
+.floating-hearts span:nth-child(6)  { left: 52%; font-size: 0.9rem; animation-duration: 12s; animation-delay: 1.8s; }
+.floating-hearts span:nth-child(7)  { left: 61%; font-size: 1.5rem; animation-duration: 9.5s; animation-delay: 4s;  }
+.floating-hearts span:nth-child(8)  { left: 70%; font-size: 1.2rem; animation-duration: 11s; animation-delay: 2s;   }
+.floating-hearts span:nth-child(9)  { left: 78%; font-size: 2rem;   animation-duration: 8.5s; animation-delay: 0.8s; }
+.floating-hearts span:nth-child(10) { left: 86%; font-size: 1rem;   animation-duration: 10s; animation-delay: 3.5s; }
+.floating-hearts span:nth-child(11) { left: 92%; font-size: 1.4rem; animation-duration: 12s; animation-delay: 1.2s; }
+.floating-hearts span:nth-child(12) { left: 97%; font-size: 1.1rem; animation-duration: 9s;  animation-delay: 5s;   }
 
 @keyframes floatHeart {
   0% {
@@ -623,6 +615,13 @@ a.track-item:hover {
 
 .photo-contain {
   background: #000;
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .photo-contain img {
