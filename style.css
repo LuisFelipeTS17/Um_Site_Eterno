@@ -621,6 +621,15 @@ a.track-item:hover {
   padding: 0;
 }
 
+.photo-contain {
+  background: #000;
+}
+
+.photo-contain img {
+  object-fit: contain;
+  padding: 12px;
+}
+
 .photo-caption {
   position: absolute;
   left: 14px;
